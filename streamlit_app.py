@@ -29,7 +29,7 @@ def change_alpha(img, alpha_factor):
 
 st.title("修改图片透明度")
 
-uploaded_file=st.file_uploader("选择一个 png 文件",type="png")
+uploaded_file=st.file_uploader("选择一个图片文件",type=["png",'jpg','jpeg'])
 
 if uploaded_file is not None:
     img=Image.open(uploaded_file)
