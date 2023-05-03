@@ -27,7 +27,7 @@ def change_alpha(img, alpha_factor):
     # 保存修改后的图片
     return img
 
-st.title("修改文件透明度")
+st.title("修改图片透明度")
 
 uploaded_file=st.file_uploader("选择一个 png 文件",type="png")
 
