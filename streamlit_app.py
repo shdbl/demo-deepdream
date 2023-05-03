@@ -2,7 +2,7 @@ import openai
 import streamlit as st
 
 # 用你自己的API密钥替换“your_api_key”
-openai.api_key = "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"
+openai.api_key = "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"
 
 # 创建一个文本生成请求
 response = openai.Completion.create(
