@@ -14,6 +14,6 @@ try:
     # 在此处添加您要提取的信息
     # 例如，提取所有段落或其他元素
     # paragraphs = soup.find_all("p")
-    st.write(soup.text)
+    st.write(soup)
 except:
     st.write('访问失败')
