@@ -1,5 +1,5 @@
 tensorflow-cpu==2.7.0
-streamlit==1.11.0
+streamlit
 click==8
 Pillow
 altair
