@@ -1,40 +1,52 @@
 import streamlit as st
-from PIL import Image
+import random
 
-def change_alpha(img, alpha_factor):
-    # 打开图片
+# 定义奖项及其对应的权重
+prizes = {
+    "一等奖": 1,
+    "二等奖": 3,
+    "三等奖": 6
+}
 
+# 定义密码
+password = "123456"
 
-    # 确保图片为RGBA格式
-    img = img.convert('RGBA')
+# 定义函数，用于验证密码是否正确
+def authenticate(pw):
+    if pw == password:
+        return True
+    else: 
+        return False
 
-    # 获取图片的尺寸和每个像素的颜色值
-    width, height = img.size
-    pixels = img.load()
+# 定义函数，用于抽奖
+def lucky_draw():
+    # 获取所有奖项的权重总和
+    total_weight = sum(prizes.values())
+    # 随机生成一个0-总和之间的整数
+    rand_num = random.randint(0, total_weight)
+    # 初始化当前权重为0
+    current_weight = 0
+    # 遍历奖项及其对应的权重
+    for prize, weight in prizes.items():
+        # 将当前权重加上当前奖项的权重
+        current_weight += weight
+        # 如果当前权重大于等于随机生成的数字，则抽中当前奖项
+        if current_weight >= rand_num:
+            return prize
 
-    # 遍历图片的每个像素
-    for x in range(width):
-        for y in range(height):
-            # 获取当前像素的颜色值
-            r, g, b, a = pixels[x, y]
+# 在页面上显示密码输入框
+pw = st.sidebar.text_input("请输入密码", type="password")
 
-            # 保留原本透明的像素不变，修改其他像素的透明度
-            if a != 0:
-                new_alpha = int(a * alpha_factor)
-                new_alpha = max(0, min(255, new_alpha))  # 保证透明度在0到255之间
-                pixels[x, y] = (r, g, b, new_alpha)
-
-    # 保存修改后的图片
-    return img
-
-st.title("修改图片透明度")
-
-uploaded_file=st.file_uploader("选择一个图片文件",type=["png",'jpg','jpeg'])
-
-if uploaded_file is not None:
-    img=Image.open(uploaded_file)
-    st.image(img)
-    alpha=st.slider('透明度',min_value=0.0,max_value=1.0,value=0.5,step=0.05)
-    pic=change_alpha(img, alpha)
-    st.image(pic)
-
+# 如果密码输入框不为空
+if pw:
+    # 验证密码是否正确
+    if authenticate(pw):
+        # 在页面上显示抽奖按钮
+        if st.button("开始抽奖"):
+            # 执行抽奖函数，获取抽奖结果
+            result = lucky_draw()
+            # 在页面上显示抽奖结果
+            st.write("恭喜您，抽中了{}！".format(result))
+    else:
+        # 在页面上显示密码错误提示
+        st.write("密码错误，请重新输入！")
