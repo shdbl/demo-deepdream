@@ -41,7 +41,7 @@ def lucky_draw():
         return ""
 
 # 在页面上显示密码输入框
-pw = st.sidebar.text_input("请输入密码", type="password")
+pw = st.sidebar.text_input("请输入兑换码")
 # 如果密码输入框不为空
 if pw:
     # 验证密码是否正确
