@@ -48,7 +48,7 @@ if pw:
             result = lucky_draw()
             st.button("开始抽奖", key="new_button_id", visible=False)
             # 在页面上显示抽奖结果
-            st.write("恭喜您，抽中了{}！".format(result))
+            st.success("恭喜您，抽中了{}！".format(result))
     else:
         # 在页面上显示密码错误提示
         st.write("密码错误，请重新输入！")
