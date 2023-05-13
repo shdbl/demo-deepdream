@@ -20,6 +20,7 @@ def authenticate(pw):
 
 # 定义函数，用于抽奖
 cj=True
+at.write("666")
 def lucky_draw():
     global cj
     if cj:
