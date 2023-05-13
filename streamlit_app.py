@@ -21,6 +21,7 @@ def authenticate(pw):
 # 定义函数，用于抽奖
 cj=True
 def lucky_draw():
+    global cj
     if cj:
         # 获取所有奖项的权重总和
         total_weight = sum(prizes.values())
