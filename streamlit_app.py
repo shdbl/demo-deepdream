@@ -20,7 +20,6 @@ def authenticate(pw):
 
 # 定义函数，用于抽奖
 cj=True
-st.write("666")
 def lucky_draw():
     global cj
     if cj:
@@ -38,6 +37,8 @@ def lucky_draw():
             if current_weight >= rand_num:
                 cj=False
                 return prize
+    else:
+        return ""
 
 # 在页面上显示密码输入框
 pw = st.sidebar.text_input("请输入密码", type="password")
