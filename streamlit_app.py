@@ -36,19 +36,19 @@ def lucky_draw():
 
 # 在页面上显示密码输入框
 pw = st.sidebar.text_input("请输入密码", type="password")
-choujiang=False
+choujiang=True
 # 如果密码输入框不为空
 if pw:
     # 验证密码是否正确
     if authenticate(pw):
         # 在页面上显示抽奖按钮
         click=st.button("开始抽奖")
-        if click and (not choujiang):
+        if click and choujiang:
             # 执行抽奖函数，获取抽奖结果
             result = lucky_draw()
             # 在页面上显示抽奖结果
             st.success("恭喜您，抽中了{}！".format(result))
-            choujiang=True
+            choujiang=False
     else:
         # 在页面上显示密码错误提示
         st.write("密码错误，请重新输入！")
