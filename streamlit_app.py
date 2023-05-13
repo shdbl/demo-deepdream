@@ -46,7 +46,6 @@ if pw:
         if click:
             # 执行抽奖函数，获取抽奖结果
             result = lucky_draw()
-            st.button("开始抽奖", key="new_button_id", visible=False)
             # 在页面上显示抽奖结果
             st.success("恭喜您，抽中了{}！".format(result))
     else:
