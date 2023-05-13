@@ -51,6 +51,7 @@ if pw:
             result = lucky_draw()
             # 在页面上显示抽奖结果
             st.success("恭喜您，抽中了{}！".format(result))
+            del click
     else:
         # 在页面上显示密码错误提示
         st.write("密码错误，请重新输入！")
