@@ -42,7 +42,8 @@ if pw:
     # 验证密码是否正确
     if authenticate(pw):
         # 在页面上显示抽奖按钮
-        if st.button("开始抽奖"):
+        click=st.button("开始抽奖")
+        if click:
             # 执行抽奖函数，获取抽奖结果
             result = lucky_draw()
             st.button("开始抽奖", key="new_button_id", visible=False)
