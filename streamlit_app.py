@@ -11,6 +11,7 @@ with open('./redeem_code.txt','r') as file:
             cjcs+=1
             xbd-=1
         elif line.strip().endswith('%'):
+            cjcs+=1
             xbd=30
 
 
