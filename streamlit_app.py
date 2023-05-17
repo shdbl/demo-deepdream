@@ -14,7 +14,6 @@ with open('./redeem_code.txt','r') as file:
             cjcs+=1
             xbd=30
 
-
 # 定义函数，用于验证密码是否正确
 def check_and_update_code(input_code):
     lines=[]
