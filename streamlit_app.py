@@ -35,7 +35,7 @@ def check_and_update_code(input_code):
 # 定标记抽中保底
 def sign_baodi(input_code):
     lines=[]
-    with open('D:/Python/玩/抽奖/redeem_code.txt','r') as file:
+    with open('./redeem_code.txt','r') as file:
         for line in file:
             line=line.strip()
             if line==input_code+'#':
