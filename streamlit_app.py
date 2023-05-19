@@ -5,7 +5,7 @@ import time
 # 统计抽奖次数和距离保底的次数
 cjcs=0
 xbd=30
-with open('https://github.com/shdbl/demo-deepdream/blob/master/redeem_code.txt','r') as file:
+with open('./redeem_code.txt','r') as file:
     for line in file.readlines():
         if line.strip().endswith('#'):
             cjcs+=1
