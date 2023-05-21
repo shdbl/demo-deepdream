@@ -4,4 +4,4 @@ pandas
 click==8
 numpy
 scikit-learn
-jieba
+Pillow 
