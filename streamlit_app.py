@@ -118,7 +118,7 @@ pw = st.text_input("请输入兑换码")
 # 如果密码输入框不为空
 if pw:
     # 验证密码是否正确
-    if check_and_update_code(pw) or pw:
+    if check_and_update_code(pw):
         # 在页面上显示抽奖按钮
         result = lucky_draw()
         if result=='周末吃饭':
